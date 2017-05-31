@@ -17,3 +17,6 @@ contract ProofOfExistence1 {
     return sha256(document);
   }
 }
+
+
+// remember to use var poe = ProofOfExistence1.deployed().then(function(instance){poe=instance})

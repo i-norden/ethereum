@@ -1,0 +1,33 @@
+
+var blockNumber = block number
+var n = number of blocks chosen as interval for performing the check
+var blockHeight = current block height of ethereum blockchain
+var initialBlockHeight = block height of ethereum blockchain at time of smart contract initiation
+var triggerHeight = initialBlockHeight + n
+var privKey = private key used within contract; used to initiate contract and prevent dead man switch activation; has the balance in question associated with it
+var pubKey = public key of the above keypair
+var targetAddress# = public address of recipien(s)
+var signTrans = transaction signed by privKey (boolean representing whether or not privKey has signed a transaction)
+var balance = eth/eth token balance associated with pirvKey
+var sendBalance = boolean to trigger sending balance to targetAddress#
+
+
+e.g.
+
+var deadManSwitch = function() {
+  if (blockHeight === triggerHeight) {
+    for ((triggerHeight - n) < blockNumber <= triggerHeight) {
+      if (signTrans === true) {
+        initialBlockHeight = triggerHeight;
+        triggerHeight += n;
+        } else {
+        sendBalance();
+      }
+    }
+  }
+}
+
+var sendBalance = function() {
+
+
+}
